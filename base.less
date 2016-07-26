@@ -1,0 +1,177 @@
+* {
+    font: 12px "Microsoft YaHei", "宋体", "Arial Narrow", HELVETICA;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+input[type="text"] {
+    border: none;
+    height: auto;
+    line-height: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
+/*清除文本框后关闭按钮*/
+
+input::-ms-clear {
+    display: none;
+}
+
+
+/*清除密码框后有小眼睛图标*/
+
+input::-ms-reveal {
+    display: none;
+}
+
+
+a.ec-btn {
+    background: #229be5;
+    color: #fff;
+    font-size: 12px;
+    padding: 0 20px;
+    border: 1px solid #229be5;
+    border-radius: 2px;
+    min-width: 80px;
+    height: 30px;
+    line-height: 30px;
+    display: inline-block;
+    text-align: center;
+    transition: background .5s, border .4s;
+    &:hover {
+        background: #23a5f5;
+        border-color: #23a5f5;
+        color: #fff;
+    }
+    &:active {
+        background: #2b92d5;
+        border-color: #2b92d5;
+        color: #fff;
+    }
+    &:focus {
+        color: #fff;
+    }
+    &.disabled {
+        background: #ccc;
+        color: #fff;
+        border-color: #ccc;
+        cursor: not-allowed;
+    }
+    &.ec-btn-lg {
+        font-size: 14px;
+        height: 40px;
+        line-height: 40px;
+    }
+    // &.ec-btn-xs {
+    //     padding: 4px 10px;
+    // }
+    // &.ec-btn-primary {
+    //     padding: 6px 42px;
+    // }
+    &.ec-btn-cancel {
+        border: 1px solid #d9d9d9;
+        background: #fff;
+        color: #4c4c4c;
+        &:hover {
+            color: #4c4c4c;
+            background: #f7f7f7;
+            border-color:  #d9d9d9;
+        }
+        &:active {
+            background: #f0f0f0;
+            color: #4c4c4c;
+        }
+        &.disabled {
+            background: #fafafa;
+            color: #cccccc;
+            border-color: #d9d9d9;
+            cursor: not-allowed;
+        }
+    }
+    &.ec-btn-popup {
+        border-radius: 0;
+        color: #1790db;
+        border: 1px dashed #21a0ee;
+        height: 26px;
+        line-height: 26px;
+        padding: 0 16px;
+        background: #fff;
+        &:hover {
+            color: #40b4ff;
+            border-color: #21a0ee;
+        }
+        &:active {
+            color: #2b93d5;
+            border-color: #21a0ee;
+        }
+        &.disabled {
+            color: #bfbfbf;
+            border-color: #959595;
+        }
+    }
+}
+
+.ec-btn-group {
+    text-align: center;
+    .ec-btn {
+        margin-right: 14px;
+    }
+    .ec-btn:nth-last-child(1) {
+        margin-right: 0;
+    }
+}
+
+input.ec-input {
+    font-size: 14px;
+    line-height: 30px;
+    height: 30px;
+    padding: 0 12px;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    border-radius: 2px;
+    &:focus {
+        border-color: #66afe9;
+        outline: 0;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+    }
+    &.ec-input-lg {
+        font-size: 16px;
+        height: 40px;
+        line-height: 40px;
+        padding: 0 22px;
+    }
+
+    &.ec-input-xs {
+        font-size: 12px;
+        height: 24px;
+        line-height: 24px;
+        padding: 0 10px;
+    }
+    // &.disabled {
+    //  background: #f8f8f8;
+    //  cursor: not-allow;
+    //  &:focus {
+    //      border-color: #ccc;
+    //      box-shadow: none;
+    //      cursor: not-allow;
+    //  }
+    // }
+}
+
+input[type='text']:disabled {
+    background: #f8f8f8;
+    cursor: not-allowed;
+}
