@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>compontents</title>
+    <script src="http://www.coolfe.com/jquery.js"></script>
     <link rel="stylesheet" href="base.css">
 </head>
 
@@ -13,6 +14,7 @@
         <input type="text" class="ec-input ec-input-xs" value="小的文本框" />
         <input type="text" class="ec-input" value="正常的文本框" />
         <input type="text" class="ec-input ec-input-lg" value="大的文本框" />
+        <input type="text" class="ec-input " disabled value="禁用的文本框" />
     </p>
     <!--button-->
     <p>
@@ -22,6 +24,81 @@
         <a href="javascript:;" class="ec-btn ec-btn-popup">+弹出层</a>
         <a href="javascript:;" class="ec-btn ec-btn-lg">加大按钮</a>
     </p>
+    <!--modal-->
+    <div id="modal-demo">
+        <a href="javascript:;" class="ec-btn">固定底部按钮弹窗</a>
+        <a href="javascript:;" class="ec-btn">正常按钮弹窗</a>
+        <a href="javascript:;" class="ec-btn">需要确定提示弹层</a>
+        <a href="javascript:;" class="ec-btn">不用确定提示弹层</a>
+    </div>
+    <div class="modal">
+        <div class="ec-modal">
+            <div class="ec-popuper">
+                <h4>EC开放平台API服务协议 <i class="ec-close">&#10005</i></h4>
+                <div class="ec-modal-container">
+                    <h3>EC开放平台API服务协议</h3>
+                    <p>欢迎您使用EC开放平台API！在使用EC开放平台API（简称为 “本服务”）之前，请您务必认真阅读并充分理解《EC开放平台API服务协议》以及开通或使用某项服务的附加协议（统称为“本协议”）。</p>
+                    <div class="ec-modal-footer ec-modal-fixed-footer">
+                        <div class="ec-btn-group">
+                            <a href="javascript:;" class="ec-btn">同意</a>
+                            <a href="javascript:;" class="ec-btn ec-btn-cancel">不同意</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ec-modal">
+            <div class="ec-popuper">
+                <h4>EC开放平台API服务协议 <i class="ec-close">&#10005</i></h4>
+                <div class="ec-modal-container">
+                    <h3>EC开放平台API服务协议</h3>
+                    <p>欢迎您使用EC开放平台API！在使用EC开放平台API（简称为 “本服务”）之前，请您务必认真阅读并充分理解《EC开放平台API服务协议》以及开通或使用某项服务的附加协议（统称为“本协议”）。</p>
+                    <div class="ec-modal-footer">
+                        <div class="ec-btn-group">
+                            <a href="javascript:;" class="ec-btn">同意</a>
+                            <a href="javascript:;" class="ec-btn ec-btn-cancel">不同意</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ec-modal prompt-modal">
+            <div class="ec-popuper">
+                <h4>修改IP <i class="ec-close">&#10005</i></h4>
+                <div class="ec-modal-container">
+                    <div class="error-content">
+                        <img src="img/error.png" alt="" />
+                        <span>请输入一个介于0和255之间的整数！</span>
+                    </div>
+                    <div class="ec-modal-footer">
+                        <div class="ec-btn-group">
+                            <a href="javascript:;" class="ec-btn">确定</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ec-modal tips-modal">
+            <div class="ec-popuper">
+                <div class="ec-modal-container">
+                    <div class="tips-content">
+                        <img src="img/tips-error.png" alt="" />
+                        <span>请输入一个介于0和255之间的整数！</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+    $(".ec-modal").css("display", "none");
+    $(".ec-modal .ec-close").click(function() {
+        $(" .ec-modal").hide();
+    })
+    $("#modal-demo .ec-btn").click(function() {
+        var modal_index = $(this).index();
+        $(".ec-modal").eq(modal_index).show().siblings().hide();
+    })
+    </script>
 </body>
 
 </html>

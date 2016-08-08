@@ -23,6 +23,17 @@ input[type="text"] {
     padding-right: 0;
 }
 
+// label {
+//     font-weight: normal;
+// }
+
+h4,
+ul,
+p {
+    margin: 0;
+}
+
+
 
 /*清除文本框后关闭按钮*/
 
@@ -37,6 +48,8 @@ input::-ms-reveal {
     display: none;
 }
 
+
+/*btn*/
 
 a.ec-btn {
     background: #229be5;
@@ -88,7 +101,7 @@ a.ec-btn {
         &:hover {
             color: #4c4c4c;
             background: #f7f7f7;
-            border-color:  #d9d9d9;
+            border-color: #d9d9d9;
         }
         &:active {
             background: #f0f0f0;
@@ -134,6 +147,9 @@ a.ec-btn {
     }
 }
 
+
+/*input*/
+
 input.ec-input {
     font-size: 14px;
     line-height: 30px;
@@ -153,7 +169,6 @@ input.ec-input {
         line-height: 40px;
         padding: 0 22px;
     }
-
     &.ec-input-xs {
         font-size: 12px;
         height: 24px;
@@ -172,6 +187,115 @@ input.ec-input {
 }
 
 input[type='text']:disabled {
+    color: #999;
     background: #f8f8f8;
     cursor: not-allowed;
+}
+
+
+/*modal*/
+
+.ec-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 10;
+    _position: absolute;
+    _clear: both;
+    // filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#7f000000,endColorstr=#7f000000); 
+    .ec-popuper {
+        position: absolute;
+        border-radius: 3px;
+        // border: #cccccc 1px solid;
+        background: #ffffff;
+        box-shadow: rgba(0, 0, 0, 0.2) 0 0 5px;
+        z-index: 10;
+        left: 50%;
+        top: 50%;
+        h4 {
+            position: relative;
+            color: #fff;
+            padding: 12px 16px;
+            background: #229be5;
+            border: 1px solid #229be5;
+            font-size: 14px;
+            line-height: 1.1;
+            i.ec-close {
+                position: absolute;
+                top: -1px;
+                right: -1px;
+                width: 40px;
+                height: 40px;
+                line-height: 40px;
+                text-align: center;
+                cursor: pointer;
+                font-size: 12px;
+                color: #fff;
+                transition: background 0.2s;
+                &:hover {
+                    background: #3478a2;
+                    ;
+                }
+            }
+        }
+    }
+    &-container {
+        padding: 20px;
+    }
+    &-body {
+        padding: 10px 50px;
+    }
+    &-footer {
+        // padding-top: 10px;
+        text-align: center;
+    }
+    &-fixed-footer {
+        position: absolute;
+        bottom: 0px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin: 0 auto;
+        background: #fff;
+        width: 95%;
+    }
+    &.prompt-modal {
+        .ec-popuper {
+            width: 326px;
+            margin-left: -168px;
+        }
+        .error-content {
+            color: #4c4c4c;
+            font-size: 14px;
+            margin-bottom: 20px;
+            span {
+                display: inline-block;
+                margin-left: 12px;
+            }
+        }
+    }
+    &.tips-modal {
+        .ec-modal-free;
+        .ec-popuper {
+            box-shadow: 0 0 8px 0 #909090;
+            background-color: #fff;
+        }
+        .tips-content {
+            color: #212121;
+            font-size: 12px;
+            span {
+                display: inline-block;
+                margin-left: 10px;
+            }
+        }
+    }
+}
+
+.ec-modal-free {
+    position: static;
+    background: none;
+    width: auto;
+    height: auto;
 }
