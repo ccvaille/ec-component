@@ -33,6 +33,10 @@ p {
     margin: 0;
 }
 
+img {
+    border: 0;
+    vertical-align: middle;
+}
 
 
 /*清除文本框后关闭按钮*/
@@ -205,7 +209,7 @@ input[type='text']:disabled {
     z-index: 10;
     _position: absolute;
     _clear: both;
-    // filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#7f000000,endColorstr=#7f000000); 
+    /* filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#7f000000,endColorstr=#7f000000); */
     .ec-popuper {
         position: absolute;
         border-radius: 3px;
@@ -244,43 +248,20 @@ input[type='text']:disabled {
     }
     &-container {
         padding: 20px;
-    }
-    &-body {
-        padding: 10px 50px;
-    }
-    &-footer {
-        // padding-top: 10px;
+        padding-bottom: 0;
+        overflow-y: auto;
+        min-width: 380px;
         text-align: center;
-    }
-    &-fixed-footer {
-        position: absolute;
-        bottom: 0px;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        margin: 0 auto;
-        background: #fff;
-        width: 95%;
-    }
-    &.prompt-modal {
-        .ec-popuper {
-            width: 326px;
-            margin-left: -168px;
-        }
-        .error-content {
+        min-height: 90px;
+        .prompt-content {
             color: #4c4c4c;
             font-size: 14px;
-            margin-bottom: 20px;
-            span {
+            // margin-bottom: 20px;
+            .prompt-text {
                 display: inline-block;
-                margin-left: 12px;
+                margin-left: 10px;
+                vertical-align: top;
             }
-        }
-    }
-    &.tips-modal {
-        .ec-modal-free;
-        .ec-popuper {
-            box-shadow: 0 0 8px 0 #909090;
-            background-color: #fff;
         }
         .tips-content {
             color: #212121;
@@ -291,6 +272,29 @@ input[type='text']:disabled {
             }
         }
     }
+    &-body {
+        padding: 10px 50px;
+    }
+    &-footer {
+        text-align: center;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        background: #fff;
+    }
+    
+    &.prompt-modal {
+        .ec-popuper {
+            width: 326px;
+            margin-left: -168px;
+        }
+    }
+    &.tips-modal {
+        .ec-modal-free;
+        .ec-popuper {
+            box-shadow: 0 0 8px 0 #909090;
+            background-color: #fff;
+        }
+    }
 }
 
 .ec-modal-free {
@@ -298,4 +302,184 @@ input[type='text']:disabled {
     background: none;
     width: auto;
     height: auto;
+}
+
+.ec-tooltip {
+    display: inline-block;
+    padding: 8px 10px;
+    background: #fc453d;
+    border: 1px #fc453d solid;
+    font-size: 12px;
+    color: #ffffff;
+    border-radius: 2px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+    span {
+        img {
+            margin-right: 4px;
+            vertical-align: middle;
+        }
+        i {
+            position: absolute;
+            background: #fc453d;
+            transform: rotate(45deg);
+            z-index: 1;
+            width: 6px;
+            height: 6px;
+        }
+    }
+    .left i {
+        bottom: 13px;
+        left: -3px;
+    }
+    .right i {
+        bottom: 13px;
+        right: -3px;
+    }
+    .top i {
+        top: -3px;
+        left: 40px;
+    }
+    .bottom i {
+        bottom: -3px;
+        left: 40px;
+    }
+}
+
+.ec-checkbox {
+    cursor: pointer;
+    height: 16px;
+    display: inline-block;
+    color: #4c4c4c;
+    a {
+        color: #229be5;
+    }
+    input[type="checkbox"] {
+        display: none;
+    }
+    input[type="checkbox"] + span {
+        position: relative;
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        border-radius: 3px;
+        border: 1px solid #7aa1bb;
+        background-color: #fff;
+        margin-right: 4px;
+        vertical-align: middle;
+        &:after {
+            transform: rotate(45deg);
+            position: absolute;
+            left: 4px;
+            top: 1px;
+            display: table;
+            width: 5px;
+            height: 8px;
+            border: 2px solid #fff;
+            border-top: 0;
+            border-left: 0;
+            content: ' ';
+            transition: all .2s;
+        }
+    }
+    input[type='checkbox']:checked + span:after {
+        border-color: #0288d1;
+    }
+    input[type='checkbox']:disabled + span {
+        border: 1px solid #d9d9d9;
+        background-color: #f0f0f0;
+        cursor: not-allowed;
+        &:after {
+            border-color: transparent;
+        }
+    }
+    &.checked span:after {
+        border-color: #0288d1 !important;
+    }
+    &.disabled span {
+        border: 1px solid #d9d9d9 !important;
+        background-color: #f0f0f0 !important;
+        cursor: not-allowed !important;
+        &:after {
+            border-color: transparent !important;
+        }
+    }
+    &.line span {
+        border-color: #ccc !important;
+        &:after {
+            transform: rotate(90deg) !important;
+            border-color: #ccc !important;
+            border-bottom: 0 !important;
+        }
+    }
+}
+
+.ec-checkbox-group {
+    .ec-checkbox {
+        margin-right: 20px;
+        &:nth-last-child(1) {
+            margin-right: 0;
+        }
+    }
+}
+.ec-radio {
+    cursor: pointer;
+    input[type="radio"] {
+        display: none;
+    }
+    input[type="radio"] + span {
+        position: relative;
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        border-radius: 8px;
+        border: 1px solid #0288d1;
+        background-color: #fff;
+        margin-right: 4px;
+        vertical-align: middle;
+        &:after {
+            position: absolute;
+            left: 2px;
+            top: 2px;
+            display: table;
+            width: 6px;
+            height: 6px;
+            border-radius: 5px;
+            content: ' ';
+            transition: all .2s;
+        }
+    }
+    input[type='radio']:checked + span:after {
+        background-color: #0288d1;
+    }
+    input[type='radio']:disabled + span {
+        border: 1px solid #d9d9d9;
+        background-color: #f0f0f0;
+        cursor: not-allowed;
+        &:after {
+            border-color: transparent;
+        }
+    }
+    &.checked span:after {
+        background-color: #0288d1 !important;
+    }
+    &.disabled span {
+        border: 1px solid #d9d9d9 !important;
+        background-color: #f0f0f0 !important;
+        cursor: not-allowed !important;
+        &:after {
+            background-color: #f0f0f0 !important;
+        }
+    }
+}
+
+.ec-radio-group {
+    .ec-radio {
+        margin-right: 20px;
+        &:nth-last-child(1) {
+            margin-right: 0;
+        }
+    }
 }
