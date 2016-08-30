@@ -6,6 +6,10 @@
 *:after {
   box-sizing: border-box;
 }
+ul,
+li {
+  list-style: none;
+}
 a {
   text-decoration: none;
 }
@@ -258,18 +262,60 @@ input[type='text']:disabled {
   width: auto;
   height: auto;
 }
+/* .ec-tooltip {
+    display: inline-block;
+    padding: 8px 10px;
+    background: #fc453d;
+    border: 1px #fc453d solid;
+    font-size: 12px;
+    color: #ffffff;
+    border-radius: 2px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+    span {
+        img {
+            margin-right: 4px;
+            vertical-align: middle;
+        }
+        i {
+            position: absolute;
+            background: #fc453d;
+            transform: rotate(45deg);
+            z-index: 1;
+            width: 6px;
+            height: 6px;
+        }
+    }
+    .left i {
+        bottom: 13px;
+        left: -3px;
+    }
+    .right i {
+        bottom: 13px;
+        right: -3px;
+    }
+    .top i {
+        top: -3px;
+        left: 40px;
+    }
+    .bottom i {
+        bottom: -3px;
+        left: 40px;
+    }
+} */
+/*tooltip*/
 .ec-tooltip {
   display: inline-block;
   padding: 8px 10px;
-  background: #fc453d;
-  border: 1px #fc453d solid;
-  font-size: 12px;
-  color: #ffffff;
+  background: #fffccc;
+  border: 1px #eee8b3 solid;
+  color: #333333;
   border-radius: 2px;
   position: absolute;
-  left: 0;
-  bottom: 0;
-  z-index: 1;
+  z-index: 10;
+  font-size: 12px;
 }
 .ec-tooltip span img {
   margin-right: 4px;
@@ -277,27 +323,24 @@ input[type='text']:disabled {
 }
 .ec-tooltip span i {
   position: absolute;
-  background: #fc453d;
-  transform: rotate(45deg);
   z-index: 1;
-  width: 6px;
-  height: 6px;
 }
-.ec-tooltip .left i {
-  bottom: 13px;
-  left: -3px;
+.ec-tooltip span cite {
+  vertical-align: middle;
 }
-.ec-tooltip .right i {
-  bottom: 13px;
-  right: -3px;
+.ec-tooltip .bottom .tip-one {
+  border: 7px transparent solid;
+  border-top: 7px #eee8b3 solid;
+  position: absolute;
+  bottom: -14px;
+  left: 13px;
 }
-.ec-tooltip .top i {
-  top: -3px;
-  left: 40px;
-}
-.ec-tooltip .bottom i {
-  bottom: -3px;
-  left: 40px;
+.ec-tooltip .bottom .tip-two {
+  border: 5px transparent solid;
+  border-top: 5px #fffccc solid;
+  position: absolute;
+  bottom: -10px;
+  left: 15px;
 }
 .ec-checkbox {
   cursor: pointer;
@@ -427,4 +470,81 @@ input[type='text']:disabled {
 }
 .ec-radio-group .ec-radio:nth-last-child(1) {
   margin-right: 0;
+}
+/*switch*/
+.ec-switch {
+  width: 86px;
+  height: 25px;
+  display: inline-block;
+  position: relative;
+  border: none;
+  outline: none;
+}
+.ec-switch input {
+  width: 86px;
+  height: 25px;
+  display: inline-block;
+  position: relative;
+  border-color: #229be6;
+  box-shadow: inset 0 0 0 16px #229be6;
+  background-color: #229be6;
+  border-radius: 20px;
+  background-clip: content-box;
+  -webkit-appearance: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  outline: none;
+  transition: background-color ease 0.4s;
+}
+.ec-switch input:before {
+  content: '';
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  background-color: #fff;
+  -webkit-transition: left .3s;
+  transition: left .3s;
+  background: url(img/cycle.png);
+}
+.ec-switch input:checked {
+  border-color: #229be6;
+  box-shadow: inset 0 0 0 16px #229be6;
+  background-color: #229be6;
+  transition: background-color ease 0.4s;
+}
+.ec-switch input:checked:before {
+  left: 58px;
+  -webkit-transition: left .3s;
+  transition: left .3s;
+}
+.ec-switch input:checked + i:before {
+  content: "我的我的";
+  right: 1%;
+  width: 100%;
+}
+.ec-switch i {
+  display: block;
+  width: 60%;
+  height: 100%;
+  font-style: normal;
+  position: absolute;
+  z-index: 2;
+  right: 30%;
+  top: 4px;
+  line-height: 25px;
+  outline: none;
+}
+.ec-switch i:before {
+  content: "你的你的";
+  color: #fff;
+  font-size: 12px;
+  font-family: Arial, Microsoft YaHei;
+  position: absolute;
+  right: -47%;
+}
+.ec-switch i:after {
+  content: "";
 }

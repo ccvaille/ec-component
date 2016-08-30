@@ -81,8 +81,8 @@
             <input type="radio" disabled name="sex"><span></span>人妖</label>
     </div>
     <!--tooltip-->
-    <h3>气泡分类（ec-tooltip）：上下左右</h3>
-    <div class="ec-tooltip">
+    <h3>气泡分类（ec-tooltip）：下</h3>
+    <!-- <div class="ec-tooltip">
         <div class="left">
             <span><i></i><img src="img/tooltip.png" alt="">提示文字</span>
         </div>
@@ -101,7 +101,20 @@
         <div class="bottom">
             <span><i></i><img src="img/tooltip.png" alt="">提示文字</span>
         </div>
-    </div>
+    </div> -->
+    <li style="position: relative;">
+        <div class="ec-tooltip" style="left: 71px;top: 0px;">
+            <div class="bottom">
+                <span><i class="tip-one"></i><i class="tip-two"></i><img src="img/error_icon.png" alt=""><cite>提示文字</cite></span>
+            </div>
+        </div>
+    </li>
+    <!-- switch -->
+    <h3 style="top: 20px">切换（ec-switch）</h3>
+    <label class="ec-switch" >
+        <input type="checkbox" checked>
+        <i></i>
+    </label>
     <script>
     $(".ec-modal").css("display", "none");
     $(".ec-modal .ec-close").click(function() {
